@@ -32,4 +32,8 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+# devise for users
 gem 'devise'
+
+# foundation for styling
+gem 'foundation-rails'

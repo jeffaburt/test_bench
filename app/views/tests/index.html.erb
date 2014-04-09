@@ -1,0 +1,35 @@
+<div class="row">
+	<div class="large-12 columns">
+		<h1>All Applications and their Tests</h1>
+	</div>
+</div>
+
+<div class="row">
+	<div class="large-12 columns">
+		<% @user.apps.each do |app| %> <br />
+			<%= app.name %>
+			<table>
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Task</th>
+						<th>Passing?</th>
+					</tr>
+				</thead>
+			<% app.tests.each do |test| %>
+			<tbody>
+				<tr>
+					<td><%= test.name %></td>
+					<td><%= test.task %></td>
+						<% if test.status == true %>
+							<td><%= "Test is passing" %></td>
+						<% else %>
+							<td><%= "Test is failing" %></td>
+						<% end %>
+				</tr>
+			</tbody>
+			<% end %>
+			</table>
+		<% end %>
+	</div>
+</div>

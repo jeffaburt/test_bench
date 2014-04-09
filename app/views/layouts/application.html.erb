@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Test Bench" %></title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
@@ -12,7 +12,51 @@
   </head>
 
   <body>
+    <div class="row">
+      <div class="large-12 columns">
+        <nav class="top-bar" data-topbar>
+          <ul class="title-area">
+            <li class="name">
+              <h1><a href="/">Home</a></h1>
+            </li>
+            <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
+          </ul>
 
+      <section class="top-bar-section">
+        <ul class="right">
+          <li class="has-dropdown">
+              <a href="#">Settings</a>
+    <% if user_signed_in? %>    
+      <ul class="dropdown">
+              <li><a href="/apps">Edit Applications</a></li>
+              <li><a href="/tests">Edit Tests</a></li>
+            </ul>
+          </li>
+          <% end %>
+        </ul>
+        
+        <ul class="left">
+            <% if user_signed_in? %>
+              <li id="user-logged-in" style="color: white; margin-top: 8px;">Logged in as <strong><%= current_user.email %></strong></li>
+              <li><%= link_to 'Edit profile', edit_user_registration_path%></li>
+              <li><%= link_to "Logout", destroy_user_session_path, method: :delete%></li>
+            <% else %>
+              <li><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %></li>
+              <li><%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %></li>
+            <% end %>
+        </ul>
+      </section>
+    </nav>
+      <% if notice %>
+        <p data-alert class="alert-box success radius"><%= notice %>
+          <a href="#" class="close">X</a>
+        </p>
+      <% end %>
+      <% if alert %>
+        <p data-alert class="alert-box warning radius"><%= alert %>
+          <a href="#" class="close">X</a>
+        </p>
+      <% end %>
     <%= yield %>
     <%= javascript_include_tag "application" %>
   </body>

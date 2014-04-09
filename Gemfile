@@ -37,3 +37,6 @@ gem 'devise'
 
 # foundation for styling
 gem 'foundation-rails'
+
+# bower for asset stuff
+gem 'bower-rails'

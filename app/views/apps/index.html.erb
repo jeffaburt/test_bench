@@ -1,22 +1,29 @@
-<h1 align="center">All User Applications</h1>
+<div class="row">
+  <div class="large-12 columns">
+    <h1 align="center">All User Applications</h1>
 
-<table align="center">
-  <thead>
-    <tr>
-      <th width="200">Name</th>
-      <th width="500">Description</th>
-    </tr>
-  </thead>
+    <table align="center">
+      <thead>
+        <tr>
+          <th width="200">Name</th>
+          <th width="500">Description</th>
+          <th colspan="2">Options</th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% @apps.each do |app| %>
-    <tr>
-      <td><%= app.name %></td>
-      <td><%= app.description %></td>
-      <td><%= link_to 'Edit', edit_app_path(app) %></td>
-      <td><%= link_to 'Delete', app, method: :delete, data: { confirm: 'Are you sure?'} %></td>
-      <td><%= link_to 'New Test', new_test_path(app) %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+      <tbody>
+        <% @apps.each do |app| %>
+        <tr>
+          <td><%= app.name %></td>
+          <td><%= app.description %></td>
+          <td><%= link_to image_tag("512/ios7-gear.png", size: "30x30"), edit_app_path(app) %></td>
+          <td><%= link_to image_tag("512/ios7-plus.png", size: "30x30"), new_test_path %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <p>
+      <%= link_to(image_tag("512/ios7-plus.png", size: "40x40", alt: "Add New Application") + "Add New Application", new_app_path) %>
+    </p>
+  </div>
+</div>

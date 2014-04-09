@@ -1,0 +1,20 @@
+<h1>Show Test</h1>
+
+<p>
+  <strong>Name:</strong>
+    <%= @test.name %>
+</p>
+
+<p>
+  <strong>Task:</strong>
+  <%= @test.task %>
+</p>
+
+<p>
+  <strong>Passing?</strong>
+  <% if @test.status == true %>
+    <%= image_tag("512/ios7-checkmark.png", size: "30x30", alt: "Passing") %>
+  <% else %>
+    <%= image_tag("512/ios7-close.png", size: "30x30", alt: "Failing") %>
+  <% end %>
+</p>

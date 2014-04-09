@@ -1,37 +1,41 @@
 <div class="row">
 	<div class="large-12 columns">
-		<h1>All Applications and their Tests</h1>
+		<h1 align="center" >All Applications and their Tests</h1>
 	</div>
 </div>
 
 <div class="row">
 	<div class="large-12 columns">
-		<% @user.apps.each do |app| %> <br />
-			<table>
-				<thead>
-          <tr>
-            <th colspan="3" ><%= app.name %></th>
-					<tr>
-						<th>Name</th>
-						<th>Task</th>
-						<th>Passing?</th>
-					</tr>
-        </tr>
-				</thead>
-			<% app.tests.each do |test| %>
-			<tbody align="center">
-				<tr>
-					<td><%= test.name %></td>
-					<td><%= test.task %></td>
-						<% if test.status == true %>
-							<td><%= image_tag("512/ios7-checkmark.png", size: "30x30", alt: "Passing" ) %></td>
-						<% else %>
-							<td><%= image_tag("512/ios7-close.png", size: "30x30", alt: "Failing") %></td>
-						<% end %>
-				</tr>
-			</tbody>
-			<% end %>
-			</table>
-		<% end %>
+    <% if @user.apps == [] %>
+      <%= "You have no applications or tests to display." %>
+    <% else %>
+  		<% @user.apps.each do |app| %> <br />
+  			<table align="center">
+  				<thead>
+            <tr>
+              <th colspan="3" ><%= app.name %></th>
+  					<tr>
+  						<th width="200">Name</th>
+  						<th width="200">Task</th>
+  						<th width="100">Passing?</th>
+  					</tr>
+          </tr>
+  				</thead>
+  			<% app.tests.each do |test| %>
+  			<tbody align="center">
+  				<tr>
+  					<td><%= test.name %></td>
+  					<td><%= test.task %></td>
+  						<% if test.status == true %>
+  							<td><%= image_tag("512/ios7-checkmark.png", size: "30x30", alt: "Passing" ) %></td>
+  						<% else %>
+  							<td><%= image_tag("512/ios7-close.png", size: "30x30", alt: "Failing") %></td>
+  						<% end %>
+  				</tr>
+  			</tbody>
+  			<% end %>
+  			</table>
+  		<% end %>
+    <% end %>
 	</div>
 </div>

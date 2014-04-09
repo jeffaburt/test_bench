@@ -1,0 +1,14 @@
+<%= form_for @test do |f| %>
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+
+	<%= f.label :task %>
+	<%= f.text_field :task %>
+
+	<%= f.label :status %>
+	<%= f.check_box :status %>
+
+	<%= collection_select(:test, :app_id, @user.apps, :id, :name) %>
+
+	<%= f.submit %>
+<% end %>

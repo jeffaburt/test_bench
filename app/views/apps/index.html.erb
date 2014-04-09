@@ -1,0 +1,22 @@
+<h1>All User Applications</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @apps.each do |app| %>
+    <tr>
+      <td><%= app.name %></td>
+      <td><%= app.description %></td>
+      <td><%= link_to 'Edit', edit_app_path(app) %></td>
+      <td><%= link_to 'Delete', app, method: :delete, data: { confirm: 'Are you sure?'} %></td>
+      <td><%= link_to 'New Test', new_test_path(app) %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

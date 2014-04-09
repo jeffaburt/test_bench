@@ -1,0 +1,13 @@
+<h1>Show App</h1>
+
+<p><strong>Name:</strong>
+  <%= @app.name %>
+</p>
+
+<p><strong>Description</strong>
+  <%= @app.description %>
+</p>
+
+<%= link_to 'Edit', edit_app_path(@app) %>
+<%= link_to 'Delete', @app, method: :delete, data: { confirm: 'Are you sure?'} %>
+<%= link_to 'See All Applications', apps_path %>

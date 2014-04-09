@@ -32,11 +32,14 @@
   						<% else %>
   							<td align="center"><%= image_tag("512/ios7-close.png", size: "30x30", alt: "Failing") %></td>
   						<% end %>
-            <td align="center"><%= link_to image_tag("512/ios7-gear.png", size: "30x30", alt: "Edit") %></td>
+            <td align="center"><%= link_to image_tag("512/ios7-gear.png", size: "30x30", alt: "Edit"), edit_test_path(test) %></td>
   				</tr>
   			</tbody>
   			<% end %>
   			</table>
+        <p align="center">
+          <%= link_to(image_tag("512/ios7-plus.png", size: "40x40", alt: "Add New Test") + "Create New Test", new_test_path) %>
+        </p>
   		<% end %>
     <% end %>
 	</div>

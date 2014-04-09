@@ -17,7 +17,7 @@
         <nav class="top-bar" data-topbar>
           <ul class="title-area">
             <li class="name">
-              <h1><a href="/">Home</a></h1>
+              <h1><a href="/">Test Bench</a></h1>
             </li>
             <li class="toggle-topbar menu-icon"><a href="#">Menu</a></li>
           </ul>
@@ -36,6 +36,8 @@
         </ul>
         
         <ul class="left">
+              <li><%= link_to 'Applications', apps_path %></li>
+              <li><%= link_to 'Tests', tests_path %></li>
             <% if user_signed_in? %>
               <li id="user-logged-in" style="color: white; margin-top: 8px;">Logged in as <strong><%= current_user.email %></strong></li>
               <li><%= link_to 'Edit profile', edit_user_registration_path%></li>

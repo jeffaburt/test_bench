@@ -1,6 +1,7 @@
 class TestsController < ApplicationController
   before_action :get_user
   before_action :get_apps
+  before_action :set_test, only: [:show, :edit, :update, :destroy]
 
   def index
   end
@@ -40,5 +41,9 @@ class TestsController < ApplicationController
 
   def test_params
     params.require(:test).permit(:name,:task,:status,:app_id)
+  end
+
+  def set_test
+    @test = Test.find(params[:id])
   end
 end

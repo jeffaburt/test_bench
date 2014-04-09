@@ -10,5 +10,5 @@
 
 	<%= collection_select(:test, :app_id, @user.apps, :id, :name) %>
 
-	<%= f.submit %>
+	<%= f.submit 'Save', :class=>'button expand small' %>
 <% end %>

@@ -4,12 +4,14 @@
 
 	<%= f.label :task %>
 	<%= f.text_field :task %>
-
-  <%= f.label :status, "Passing", :value => "true" %>
-  <%= f.radio_button :status, true %>
-
-  <%= f.label :status, "Failing", :value => "false" %>
-  <%= f.radio_button :status, false, :checked => true %>
+  <div class="large-6 columns">
+    <label>Test Status</label>
+    <%= f.radio_button :status, true %>
+    <%= f.label :status, "Passing", :value => "true" %>
+    
+    <%= f.radio_button :status, false, :checked => true %>      
+    <%= f.label :status, "Failing", :value => "false" %>
+  </div>
 
 	<%= collection_select(:test, :app_id, @user.apps, :id, :name) %>
 

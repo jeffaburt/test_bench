@@ -21,7 +21,7 @@ class AppsController < ApplicationController
     @user.apps << @app
 
     if @app.save && @user.save
-      render action: 'show'
+      render action: 'index'
     else
       render action: 'new'
     end
@@ -29,7 +29,7 @@ class AppsController < ApplicationController
 
   def update
     @app.update(app_params)
-    render action: 'show'
+    render action: 'index'
   end
 
   def destroy

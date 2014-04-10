@@ -27,6 +27,11 @@ class TestsController < ApplicationController
   end
 
   def destroy
+    @test.destroy
+    respond_to do |format|
+      format.html {redirect_to tests_url}
+      format.json {head :no_content}
+    end
   end
 
   private

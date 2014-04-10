@@ -13,17 +13,22 @@ class TestsController < ApplicationController
     @test = Test.new
   end
 
+  def edit
+  end
+
   def create
     @test = Test.new(test_params)
 
     if @test.save
-      render action: 'show'
+      render action: 'index'
     else
       render action: 'new'
     end
   end
 
   def update
+    @test.update(test_params)
+    render action: 'index'
   end
 
   def destroy

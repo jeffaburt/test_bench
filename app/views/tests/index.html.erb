@@ -28,9 +28,9 @@
                     <td align="left"><%= test.name %></td>
                     <td align="left"><%= test.task %></td>
                     <% if test.status == true %>
-                        <td align="center"><%= image_tag("512/ios7-checkmark.png", size: "30x30", alt: "Passing") %></td>
+                        <td align="center"><%= image_tag("green-checkmark.png", size: "30x30", alt: "Passing") %></td>
                     <% else %>
-                        <td align="center"><%= image_tag("512/ios7-close.png", size: "30x30", alt: "Failing") %></td>
+                        <td align="center"><%= image_tag("red-x.png", size: "30x30", alt: "Failing") %></td>
                     <% end %>
                     <td align="center"><%= link_to image_tag("512/ios7-gear.png", size: "30x30", alt: "Edit"), edit_test_path(test) %></td>
                   </tr>

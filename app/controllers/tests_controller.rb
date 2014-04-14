@@ -46,7 +46,7 @@ class TestsController < ApplicationController
   end
 
   def get_apps
-    @apps = @user.apps
+    @apps = App.all
   end
 
   def test_params
